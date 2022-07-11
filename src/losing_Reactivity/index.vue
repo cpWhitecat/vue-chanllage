@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue"
+import { reactive, toRef, toRefs } from "vue"
 
 function useCount() {
   const state = reactive({
@@ -11,13 +11,17 @@ function useCount() {
   }
 
   return {
-    state,
+    state:toRefs(state),
     update,
   }
 }
 
+// toRefs this API 对于对象的可选属性是怎么操作的？？
+
 // 确保解构不丢失响应性
-const { state: { count }, update } = useCount()
+const { state: { count }, update } = useCount();
+
+
 
 </script>
 
@@ -30,3 +34,5 @@ const { state: { count }, update } = useCount()
     </p>
   </div>
 </template>
+
+

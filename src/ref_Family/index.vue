@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, reactive, isRef, unref, toRef } from "vue"
+import { ref, Ref, reactive, isRef, unref, toRef, toRefs } from "vue"
 
 const initial = ref(10)
 const count = ref(0)
